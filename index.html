@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>코웨이 군포 공식접수처 | 이영기 팀장 렌탈 직영몰</title>
+  <meta name="description" content="코웨이 정수기, 공기청정기, 비데, 비렉스 매트리스/안마의자 최대 혜택 렌탈. 등록비·설치비 전액 면제 및 프리미엄 사은품 증정. 군포·의왕·안양 빠른 설치.">
+  <style>
+    :root {
+      --primary: #0072ce;
+      --primary-dark: #00569e;
+      --primary-light: #e8f4fd;
+      --accent: #ff4757;
+      --dark: #1e293b;
+      --gray-bg: #f8fafc;
+      --gray-border: #e2e8f0;
+      --text-muted: #64748b;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", Roboto, "Noto Sans KR", sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: var(--gray-bg);
+      color: var(--dark);
+      line-height: 1.6;
+      padding-bottom: 70px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 상단 배너 & 헤더 */
+    .top-bar {
+      background: var(--dark);
+      color: #fff;
+      font-size: 13px;
+      text-align: center;
+      padding: 6px 16px;
+      font-weight: 500;
+    }
+    .top-bar span {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+    header {
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-badge {
+      font-size: 11px;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .logo-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -1px;
+    }
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header-tel-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* 히어로 섹션 */
+    .hero {
+      background: linear-gradient(145deg, #0284c7 0%, #0369a1 50%, #075985 100%);
+      color: #fff;
+      padding: 40px 20px 36px;
+      text-align: center;
+      position: relative;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+    .hero h1 span {
+      color: #fed7aa;
+    }
+    .hero p {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 24px;
+      word-break: keep-all;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .btn-main {
+      background: #fff;
+      color: var(--primary-dark);
+      padding: 12px 24px;
+      border-radius: 28px;
+      font-size: 15px;
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .btn-accent {
+      background: #f59e0b;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 28px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    /* 핵심 혜택 4가지 */
+    .benefits-bar {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 600px;
+      margin: -20px auto 24px;
+      padding: 0 16px;
+      position: relative;
+      z-index: 10;
+    }
+    .benefit-item {
+      background: #fff;
+      padding: 14px 12px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      border: 1px solid var(--gray-border);
+    }
+    .benefit-icon {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+    .benefit-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .benefit-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* 탭 필터 */
+    .section-title {
+      text-align: center;
+      margin: 30px 16px 16px;
+    }
+    .section-title h2 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .section-title p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 16px 16px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      background: #fff;
+      border: 1px solid var(--gray-border);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* 제품 카드 그리드 */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 0 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-border);
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-badge-wrap {
+      padding: 12px 16px 0;
+      display: flex;
+      gap: 6px;
+    }
+    .p-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+    .p-badge.hot {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+    .product-body {
+      padding: 12px 16px 16px;
+    }
+    .product-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .product-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .product-features {
+      list-style: none;
+      font-size: 12px;
+      color: #475569;
+      margin-bottom: 14px;
+      background: #f1f5f9;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    .product-features li {
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .product-features li:last-child {
+      margin-bottom: 0;
+    }
+    .price-box {
+      border-top: 1px dashed var(--gray-border);
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 12px;
+    }
+    .price-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .price-card-discount {
+      font-size: 11px;
+      color: #059669;
+      font-weight: 600;
+    }
+    .price-value {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .price-value small {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .btn-apply-prod {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 11px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* 프로모션 배너 */
+    .promo-banner {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius);
+      margin: 30px 16px;
+      padding: 16px;
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .promo-banner h3 {
+      font-size: 16px;
+      color: #1e3a8a;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .promo-banner p {
+      font-size: 13px;
+      color: #3b82f6;
+      font-weight: 500;
+    }
+
+    /* 간편 상담 신청 폼 */
+    .form-section {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px 20px;
+      margin: 20px 16px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid var(--gray-border);
+    }
+    .form-section h3 {
+      font-size: 18px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .form-section p {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--gray-border);
+      border-radius: 8px;
+      font-size: 14px;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--primary);
+    }
+    .btn-submit {
+      width: 100%;
+      background: #2563eb;
+      color: #fff;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      margin-top: 10px;
+    }
+
+    /* 담당 플래너 소개 */
+    .manager-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 18px;
+      margin: 20px 16px;
+      border: 1px solid var(--gray-border);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .manager-avatar {
+      width: 56px;
+      height: 56px;
+      background: var(--primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+    .manager-info h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    .manager-info p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    /* 푸터 */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 30px 20px;
+      font-size: 11px;
+      line-height: 1.6;
+      text-align: center;
+    }
+    footer strong {
+      color: #f1f5f9;
+    }
+    .footer-desc {
+      margin-top: 8px;
+      color: #64748b;
+    }
+
+    /* 하단 고정 통화 바 */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 1px solid var(--gray-border);
+      display: flex;
+      padding: 8px 16px;
+      gap: 10px;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
+    }
+    .bottom-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-tel {
+      background: #10b981;
+      color: #fff;
+    }
+    .btn-kakao {
+      background: #fee500;
+      color: #191919;
+    }
+    .btn-form-link {
+      background: var(--primary);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 안내 바 -->
+  <div class="top-bar">
+    🎉 11월 공식 프로모션: <span>등록비 10만원 + 설치비 전액 면제</span> & 사은품 증정
+  </div>
+
+  <!-- 헤더 -->
+  <header>
+    <div class="logo">
+      <span class="logo-badge">COWAY 군포지구 공식파트너</span>
+      <span class="logo-title">코웨이 렌탈 직영몰</span>
+    </div>
+    <div class="header-contact">
+      <a href="tel:01082842850" class="header-tel-btn" style="background:#10b981;">📞 010-8284-2850</a>
+      <a href="sms:01082842850?body=안녕하세요! 코웨이 렌탈 상담 문의드립니다." class="header-tel-btn" style="background:#fee500; color:#191919;">💬 카톡/문자</a>
+    </div>
+  </header>
+
+  <!-- 히어로 섹션 -->
+  <section class="hero">
+    <div class="hero-badge">군포·의왕·안양 전지역 당일/익일 빠른 설치</div>
+    <h1>코웨이 최신 인기 가전<br><span>이달의 최대 혜택</span>으로 렌탈하세요!</h1>
+    <p>1:1 전담 플래너 이영기 팀장이 가장 유리한 제휴카드 할인과 최대 사은품 혜택을 직접 설계해 드립니다.</p>
+    <div class="hero-cta">
+      <a href="#applyForm" class="btn-main">간편 견적 신청</a>
+      <a href="tel:01082842850" class="btn-accent">📞 즉시 전화 상담</a>
+    </div>
+  </section>
+
+  <!-- 핵심 혜택 4가지 -->
+  <div class="benefits-bar">
+    <div class="benefit-item">
+      <div class="benefit-icon">🎁</div>
+      <div class="benefit-title">초기 비용 0원</div>
+      <div class="benefit-desc">등록비 10만원+설치비 전액 지원</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">💳</div>
+      <div class="benefit-title">제휴카드 추가할인</div>
+      <div class="benefit-desc">전월 실적 따라 월 최대 2.5만원↓</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">🛡️</div>
+      <div class="benefit-title">100% 본사 직영 케어</div>
+      <div class="benefit-desc">전문 코디 정기 방문 & 무상 AS</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">📦</div>
+      <div class="benefit-title">프리미엄 사은품</div>
+      <div class="benefit-desc">렌탈 고객 전원 맞춤 사은품 증정</div>
+    </div>
+  </div>
+
+  <!-- 제품 소개 섹션 -->
+  <div class="section-title">
+    <h2>🏆 베스트 추천 상품</h2>
+    <p>우리 집에 꼭 맞는 코웨이 가전을 만나보세요</p>
+  </div>
+
+  <!-- 탭 메뉴 -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="filterCategory('all', this)">전체보기</button>
+    <button class="tab-btn" onclick="filterCategory('water', this)">정수기</button>
+    <button class="tab-btn" onclick="filterCategory('air', this)">공기청정기</button>
+    <button class="tab-btn" onclick="filterCategory('bidet', this)">비데</button>
+    <button class="tab-btn" onclick="filterCategory('berex', this)">비렉스(매트리스·안마)</button>
+  </div>
+
+  <!-- 제품 목록 -->
+  <div class="product-grid" id="productGrid">
+    
+    <!-- 1. 아이콘 얼음정수기 -->
+    <div class="product-card" data-cat="water">
+      <div class="product-badge-wrap">
+        <span class="p-badge hot">인기 1위</span>
+        <span class="p-badge">초소형 얼음정수기</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">아이콘 얼음정수기</div>
+        <div class="product-sub">국내 최소형 사이즈, 듀얼 쾌속 제빙과 100℃ 초고온수</div>
+        <ul class="product-features">
+          <li>✓ 가로 24cm 슬림 디자인으로 주방 공간 극대화</li>
+          <li>✓ 하루 최대 600개 얼음 생성 (빠른 제빙 모드)</li>
+          <li>✓ 4중 UV 살균 케어로 얼음 트레이부터 파우셋까지 안심</li>
+        </ul>
+        <div class="price-box">
+          <div>
+            <div class="price-label">제휴카드 적용 시</div>
+            <div class="price-card-discount">월 최대 25,000원 할인</div>
+          </div>
+          <div class="price-value"><small>월</small> 24,900원~</div>
+        </div>
+        <button class="btn-apply-prod" onclick="selectProduct('아이콘 얼음정수기')">이 상품 혜택 문의하기</button>
+      </div>
+    </div>
+
+    <!-- 2. 아이콘 정수기 2 -->
+    <div class="product-card" data-cat="water">
+      <div class="product-badge-wrap">
+        <span class="p-badge">스테디셀러</span>
+        <span class="p-badge">컴팩트 디자인</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">아이콘 정수기 2</div>
+        <div class="product-sub">초소형 미니멀 디자인, 맞춤 온수 온도 설정</div>
+        <ul class="product-features">
+          <li>✓ 가로 18cm 초컴팩트 사이즈</li>
+          <li>✓ 4단계 온수 조절 (100℃/85℃/70℃/45℃)</li>
+          <li>✓ 6시간마다 파우셋 UV 자동 살균</li>
+        </ul>
+        <div class="price-box">
+          <div>
+            <div class="price-label">제휴카드 적용 시</div>
+            <div class="price-card-discount">월 최대 20,000원 할인</div>
+          </div>
+          <div class="price-value"><small>월</small> 17,900원~</div>
+        </div>
+        <button class="btn-apply-prod" onclick="selectProduct('아이콘 정수기 2')">이 상품 혜택 문의하기</button>
+      </div>
+    </div>
+
+    <!-- 3. 노블 공기청정기 -->
+    <div class="product-card" data-cat="air">
+      <div class="product-badge-wrap">
+        <span class="p-badge hot">프리미엄</span>
+        <span class="p-badge">4면 입체 청정</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">노블 공기청정기 (20평형/30평형)</div>
+        <div class="product-sub">건축물에서 영감받은 큐브 디자인, 맞춤 필터 시스템</div>
+        <ul class="product-features">
+          <li>✓ 4D 입체 흡입으로 사각지대 없는 강력 청정</li>
+          <li>✓ 반려동물·미세먼지·새집냄새 등 맞춤 에어매칭 필터</li>
+          <li>✓ 인공지능 에어케어로 공기질 자동 감지 및 스마트 운전</li>
+        </ul>
+        <div class="price-box">
+          <div>
+            <div class="price-label">제휴카드 적용 시</div>
+            <div class="price-card-discount">월 최대 20,000원 할인</div>
+          </div>
+          <div class="price-value"><small>월</small> 21,900원~</div>
+        </div>
+        <button class="btn-apply-prod" onclick="selectProduct('노블 공기청정기')">이 상품 혜택 문의하기</button>
+      </div>
+    </div>
+
+    <!-- 4. 룰루 스스로살균 비데 -->
+    <div class="product-card" data-cat="bidet">
+      <div class="product-badge-wrap">
+        <span class="p-badge">청결 위생</span>
+        <span class="p-badge">더블케어</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">룰루 더블케어 비데</div>
+        <div class="product-sub">전기분해살균수 듀얼 살균으로 365일 깨끗한 위생 관리</div>
+        <ul class="product-features">
+          <li>✓ 노즐부터 도기 안쪽까지 99.9% 자동 전기분해살균</li>
+          <li>✓ 오염에 강한 스테인리스 노즐 및 분리형 커버</li>
+          <li>✓ 방수 등급 IPX5로 물청소 안심</li>
+        </ul>
+        <div class="price-box">
+          <div>
+            <div class="price-label">제휴카드 적용 시</div>
+            <div class="price-card-discount">월 최대 15,000원 할인</div>
+          </div>
+          <div class="price-value"><small>월</small> 13,900원~</div>
+        </div>
+        <button class="btn-apply-prod" onclick="selectProduct('룰루 더블케어 비데')">이 상품 혜택 문의하기</button>
+      </div>
+    </div>
+
+    <!-- 5. 비렉스 스마트 매트리스 -->
+    <div class="product-card" data-cat="berex">
+      <div class="product-badge-wrap">
+        <span class="p-badge hot">슬립케어</span>
+        <span class="p-badge">BEREX 힐링</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">비렉스(BEREX) 스마트 매트리스</div>
+        <div class="product-sub">내 몸에 꼭 맞게 경도를 자동 조절하는 맞춤 수면 솔루션</div>
+        <ul class="product-features">
+          <li>✓ 듀얼 스마트 셀로 좌우 독립 경도 조절 (하드/소프트)</li>
+          <li>✓ 수면 중 뒤척임에 반응하는 스마트 체압 분산</li>
+          <li>✓ 4개월마다 전문 위생 홈케어 서비스 무상 제공</li>
+        </ul>
+        <div class="price-box">
+          <div>
+            <div class="price-label">제휴카드 적용 시</div>
+            <div class="price-card-discount">월 최대 25,000원 할인</div>
+          </div>
+          <div class="price-value"><small>월</small> 32,900원~</div>
+        </div>
+        <button class="btn-apply-prod" onclick="selectProduct('비렉스 스마트 매트리스')">이 상품 혜택 문의하기</button>
+      </div>
+    </div>
+
+    <!-- 6. 비렉스 페블체어 -->
+    <div class="product-card" data-cat="berex">
+      <div class="product-badge-wrap">
+        <span class="p-badge">안마의자</span>
+        <span class="p-badge">인테리어 체어</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">비렉스(BEREX) 페블체어</div>
+        <div class="product-sub">감각적인 디자인과 강력한 3D 멀티 마사지 기능</div>
+        <ul class="product-features">
+          <li>✓ 거실 인테리어와 완벽 조화, 콤팩트 라운지 체어</li>
+          <li>✓ 온열 시트 & 목/어깨/등/허리 집중 릴렉스 모드</li>
+          <li>✓ 블루투스 스피커 탑재로 음악과 함께하는 힐링</li>
+        </ul>
+        <div class="price-box">
+          <div>
+            <div class="price-label">제휴카드 적용 시</div>
+            <div class="price-card-discount">월 최대 25,000원 할인</div>
+          </div>
+          <div class="price-value"><small>월</small> 29,900원~</div>
+        </div>
+        <button class="btn-apply-prod" onclick="selectProduct('비렉스 페블체어')">이 상품 혜택 문의하기</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 결합 할인 안내 배너 -->
+  <div class="promo-banner">
+    <h3>💡 2개 이상 패키지 결합 시 추가 10~15% 할인!</h3>
+    <p>정수기 + 청정기 또는 정수기 + 비데 묶음 렌탈 시 추가 결합 할인 혜택이 적용됩니다.</p>
+  </div>
+
+  <!-- 전담 플래너 카드 -->
+  <div class="manager-card">
+    <div class="manager-avatar">👨‍💼</div>
+    <div class="manager-info">
+      <h4>코웨이 군포지구 | 이영기 팀장</h4>
+      <p>고객님 라이프스타일에 맞춘 가장 경제적인 렌탈 플랜을 찾아드립니다. 신속하고 정직하게 안내해 드리겠습니다.</p>
+      <p style="margin-top:6px; font-weight:700; color:var(--primary);">직통 연락처: 010-8284-2850</p>
+    </div>
+  </div>
+
+  <!-- 간편 견적 & 상담 신청 폼 -->
+  <section class="form-section" id="applyForm">
+    <h3>📝 1분 맞춤 견적 & 사은품 혜택 신청</h3>
+    <p>정보를 남겨주시면 이영기 팀장이 직접 가장 큰 혜택으로 안내해 드립니다.</p>
+
+    <form onsubmit="handleFormSubmit(event)">
+      <div class="form-group">
+        <label for="custName">고객 성함 *</label>
+        <input type="text" id="custName" class="form-control" placeholder="성함을 입력해 주세요" required>
+      </div>
+
+      <div class="form-group">
+        <label for="custPhone">연락처 *</label>
+        <input type="tel" id="custPhone" class="form-control" placeholder="010-0000-0000" required>
+      </div>
+
+      <div class="form-group">
+        <label for="prodSelect">관심 제품</label>
+        <select id="prodSelect" class="form-control">
+          <option value="아이콘 얼음정수기">아이콘 얼음정수기</option>
+          <option value="아이콘 정수기 2">아이콘 정수기 2</option>
+          <option value="노블 공기청정기">노블 공기청정기</option>
+          <option value="룰루 더블케어 비데">룰루 더블케어 비데</option>
+          <option value="비렉스 스마트 매트리스">비렉스(BEREX) 매트리스</option>
+          <option value="비렉스 페블체어">비렉스(BEREX) 안마의자</option>
+          <option value="패키지(2종 이상 묶음)">2종 이상 결합 패키지</option>
+          <option value="기타/추천요청">상담 후 추천 희망</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="callTime">상담 희망 시간대</label>
+        <select id="callTime" class="form-control">
+          <option value="언제든 가능">언제든 통화 가능</option>
+          <option value="오전 (09:00~12:00)">오전 (09:00~12:00)</option>
+          <option value="오후 (12:00~18:00)">오후 (12:00~18:00)</option>
+          <option value="저녁 (18:00 이후)">저녁 (18:00 이후)</option>
+          <option value="문자/카톡 상담 희망">문자/카톡 상담 먼저 희망</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="custMemo">추가 문의사항 (선택)</label>
+        <textarea id="custMemo" class="form-control" rows="2" placeholder="사은품 문의나 제휴카드 할인 등 궁금하신 점을 남겨주세요."></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">🎁 혜택가 견적 & 상담 신청하기</button>
+    </form>
+  </section>
+
+  <!-- 푸터 정보 -->
+  <footer>
+    <p><strong>코웨이 군포지구 공식 파트너</strong> | 렌탈 전담 플래너: 이영기 팀장</p>
+    <p>직통 전화: 010-8284-2850 | 지역: 경기도 군포시 수리산로 102</p>
+    <p class="footer-desc">
+      본 웹페이지는 코웨이(주) 공식 판매 플래너의 제품 안내 및 비대면 상담 접수용 랜딩페이지입니다.<br>
+      접수된 고객 정보는 오직 렌탈 상담 및 설치 접수 목적으로만 안전하게 사용됩니다.<br>
+      © 2026 Coway Partner Gunpo. All Rights Reserved.
+    </p>
+  </footer>
+
+  <!-- 하단 고정 전화/상담 바 -->
+  <div class="bottom-bar">
+    <a href="tel:01082842850" class="bottom-btn btn-tel">
+      📞 전화 상담
+    </a>
+    <a href="sms:01082842850?body=안녕하세요! 코웨이 렌탈 상담 문의드립니다." class="bottom-btn btn-kakao">
+      💬 카톡/문자
+    </a>
+    <a href="#applyForm" class="bottom-btn btn-form-link">
+      ✍️ 간편 견적
+    </a>
+  </div>
+
+  <script>
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function selectProduct(prodName) {
+      const select = document.getElementById('prodSelect');
+      select.value = prodName;
+      document.getElementById('applyForm').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const prod = document.getElementById('prodSelect').value;
+      const time = document.getElementById('callTime').value;
+      const memo = document.getElementById('custMemo').value.trim();
+
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = '⏳ 견적 신청 접수 중...';
+
+      const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfw6936KmW-sQpl7aZ71dQ0kFSwKzyxDI9dSSEe0gh-02mnhw/formResponse';
+      const formData = new URLSearchParams();
+      formData.append('entry.2125511413', name);
+      formData.append('entry.1127520248', phone);
+      formData.append('entry.1254725313', prod);
+      formData.append('entry.1816983474', time);
+      formData.append('entry.701211403', memo);
+      formData.append('fvv', '1');
+      formData.append('pageHistory', '0');
+      formData.append('fbzx', '620401071442862544');
+
+      try {
+        await fetch(formUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: formData.toString()
+        });
+      } catch (err) {
+        console.log('Submission sent', err);
+      }
+
+      alert(`[상담 신청 완료]\n성함: ${name} 님\n연락처: ${phone}\n신청 제품: ${prod}\n희망 시간: ${time}\n\n신청이 성공적으로 접수되었습니다!\n담당 플래너(이영기 팀장)가 확인 후 빠르게 연락드리겠습니다.`);
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
